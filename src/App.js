@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Bump from './Bump'
+import Components from './Components'
 
 function App() {
   return (
     <div className="App">
-      <Bump/>
+      <Components/>
     </div>
   );
 }

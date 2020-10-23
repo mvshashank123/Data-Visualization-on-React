@@ -1,5 +1,5 @@
 import React from 'react'
-import {BarData,BumpData} from './Data'
+import {BarData,BumpData, ChloroplethData} from './Data'
 import { ResponsiveBar } from '@nivo/bar'
 import "./App.css"
 // make sure parent container have a defined height when using
@@ -13,6 +13,55 @@ import { ResponsiveAreaBump } from '@nivo/bump'
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
+import { ResponsiveChoropleth } from '@nivo/geo'
+// make sure parent container have a defined height when using
+// responsive component, otherwise height will be 0 and
+// no chart will be rendered.
+// website examples showcase many properties,
+// you'll often use just a few of them.
+const MyResponsiveChoropleth = ({ data /* see data tab */ }) => (
+    <ResponsiveChoropleth
+        data={data}
+        features="/* please have a look at the description for usage */"
+        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        colors="nivo"
+        domain={[ 0, 1000000 ]}
+        unknownColor="#666666"
+        label="properties.name"
+        valueFormat=".2s"
+        projectionTranslation={[ 0.5, 0.5 ]}
+        projectionRotation={[ 0, 0, 0 ]}
+        enableGraticule={true}
+        graticuleLineColor="#dddddd"
+        borderWidth={0.5}
+        borderColor="#152538"
+        legends={[
+            {
+                anchor: 'bottom-left',
+                direction: 'column',
+                justify: true,
+                translateX: 20,
+                translateY: -100,
+                itemsSpacing: 0,
+                itemWidth: 94,
+                itemHeight: 18,
+                itemDirection: 'left-to-right',
+                itemTextColor: '#444444',
+                itemOpacity: 0.85,
+                symbolSize: 18,
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemTextColor: '#000000',
+                            itemOpacity: 1
+                        }
+                    }
+                ]
+            }
+        ]}
+    />
+)
 
 const MyResponsiveAreaBump = ({ data /* see data tab */ }) => (
     <ResponsiveAreaBump
@@ -168,13 +217,14 @@ const MyResponsiveBar = ({ data }) => (
     />
 )
 
-function Bump() {
+function Components() {
     return (
         <div className="bar">
-            <MyResponsiveBar data={BarData}/>
-            <MyResponsiveAreaBump data={BumpData}/>
+            {/* <MyResponsiveBar data={BarData}/>
+            <MyResponsiveAreaBump data={BumpData}/> */}
+            <MyResponsiveChoropleth data={ChloroplethData}/>
         </div>
     )
 }
 
-export default Bump
+export default Components
