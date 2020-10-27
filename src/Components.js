@@ -2,6 +2,7 @@ import React from 'react'
 import {BarData,BumpData, ChloroplethData} from './Data'
 import { ResponsiveBar } from '@nivo/bar'
 import "./App.css"
+import features from "./world_countries.json";
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
@@ -22,7 +23,7 @@ import { ResponsiveChoropleth } from '@nivo/geo'
 const MyResponsiveChoropleth = ({ data /* see data tab */ }) => (
     <ResponsiveChoropleth
         data={data}
-        features="/* please have a look at the description for usage */"
+        features={features.features}
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
         colors="nivo"
         domain={[ 0, 1000000 ]}
