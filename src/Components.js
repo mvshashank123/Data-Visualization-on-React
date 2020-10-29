@@ -221,8 +221,8 @@ const MyResponsiveBar = ({ data }) => (
 function Components() {
     return (
         <div className="bar">
-            {/* <MyResponsiveBar data={BarData}/>
-            <MyResponsiveAreaBump data={BumpData}/> */}
+            <MyResponsiveBar data={BarData}/>
+            <MyResponsiveAreaBump data={BumpData}/>
             <MyResponsiveChoropleth data={ChloroplethData}/>
         </div>
     )
